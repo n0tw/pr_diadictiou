@@ -10,8 +10,11 @@ def more(text):
             if reply == 'n':
                 break
 
-url = 'http://google.com/'  
+url = 'http://eclass.upatras.gr/'  
 
 with requests.get(url) as response:  
     html = response.text
+    server = response.headers.get('Server')
+    if server:
+        print("server")
     more(html)
